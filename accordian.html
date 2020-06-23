@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+      }
+
+      .active,
+      .accordion:hover {
+        background-color: #ccc;
+      }
+      .panel {
+        padding: 0 18px;
+        display: none;
+        background-color: white;
+        overflow: hidden;
+      }
+      .showing {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Accordion</h2>
+
+    <button class="accordion1 accordion">Section 1</button>
+    <div class="panel">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </div>
+
+    <button class="accordion2 accordion">Section 2</button>
+    <div class="panel">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </div>
+
+    <button class="accordion3 accordion">Section 3</button>
+    <div class="panel">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </div>
+
+    <script>
+      const accordion1 = document.querySelector(".accordion1"),
+        accordion2 = document.querySelector(".accordion2"),
+        accordion3 = document.querySelector(".accordion3");
+
+      function handleClick(event) {
+        const target = event.target;
+        const targetSibling = event.target.nextElementSibling;
+        // targetSibling.classList.toggle("showing");
+        // target.classList.toggle("active");
+
+        if (targetSibling.style.display === "block") {
+          targetSibling.style.display = "none";
+        } else {
+          targetSibling.style.display = "block";
+        }
+      }
+
+      function init() {
+        accordion1.addEventListener("click", handleClick);
+        accordion2.addEventListener("click", handleClick);
+        accordion3.addEventListener("click", handleClick);
+      }
+      init();
+      //   var acc = document.getElementsByClassName("accordion");
+      //   var i;
+      //   for (i = 0; i < acc.length; i++) {
+      //     acc[i].addEventListener("click", function (e) {
+      //       console.log(this, e.target, acc[2]);
+      //       this.classList.toggle("active");
+      //       var panel = this.nextElementSibling;
+      //       console.log(panel.style);
+      //       if (panel.style.display === "block") {
+      //         panel.style.display = "none";
+      //       } else {
+      //         panel.style.display = "block";
+      //       }
+      //     });
+      //   }
+    </script>
+  </body>
+</html>
