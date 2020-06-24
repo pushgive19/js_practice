@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,16 +15,22 @@
         font-size: 15px;
         transition: 0.4s;
       }
-
-      .active,
+      .accordion::after {
+        content: "+";
+        float: right;
+      }
+      .active::after {
+        content: "-";
+      }
       .accordion:hover {
         background-color: #ccc;
       }
       .panel {
         padding: 0 18px;
-        display: none;
+        height: 0;
         background-color: white;
         overflow: hidden;
+        transition: height 0.2s ease-in;
       }
       .showing {
         display: block;
@@ -38,9 +44,7 @@
     <div class="panel">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
+        tempor
       </p>
     </div>
 
@@ -68,17 +72,23 @@
       const accordion1 = document.querySelector(".accordion1"),
         accordion2 = document.querySelector(".accordion2"),
         accordion3 = document.querySelector(".accordion3");
+      const panel = document.querySelector(".panel");
 
       function handleClick(event) {
         const target = event.target;
         const targetSibling = event.target.nextElementSibling;
         // targetSibling.classList.toggle("showing");
-        // target.classList.toggle("active");
-
-        if (targetSibling.style.display === "block") {
-          targetSibling.style.display = "none";
+        target.classList.toggle("active");
+        if (target.classList.contains("active")) {
+          target: after = "+";
         } else {
-          targetSibling.style.display = "block";
+          target: after = "-";
+        }
+
+        if (targetSibling.style.height) {
+          targetSibling.style.height = "";
+        } else {
+          targetSibling.style.height = `${targetSibling.scrollHeight}px`;
         }
       }
 
@@ -103,6 +113,95 @@
       //       }
       //     });
       //   }
+    </script>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>make adccordion</title>
+    <style>
+      body {
+        height: 500px;
+      }
+      .accordion__title {
+        font-size: 20px;
+        font-weight: 400;
+        background-color: burlywood;
+        padding: 10px 5px;
+        line-height: initial;
+        text-justify: center;
+        opacity: 0.7;
+      }
+      .active,
+      .accordion__title:hover {
+        opacity: 1;
+      }
+      .accordion {
+        padding: 0px 20px;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.1s ease;
+      }
+      .accordion__title::after {
+        content: "➕";
+        float: right;
+      }
+      .active::after {
+        content: "➖";
+      }
+      .showing {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>accordion</h1>
+    <section class="accordion__title js-ac1">section1</section>
+    <div class="accordion js-accordion">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa minus qui
+      adipisci dolores impedit hic, a earum totam nemo obcaecati dolorem dolor
+      incidunt cumque facilis quisquam, aliquid, alias doloribus? Debitis?
+    </div>
+    <section class="accordion__title js-ac2">section2</section>
+    <div class="accordion js-accordion">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa minus qui
+      adipisci dolores impedit hic, a earum totam nemo obcaecati dolorem dolor
+      incidunt cumque facilis quisquam, aliquid, alias doloribus? Debitis?
+    </div>
+    <section class="accordion__title js-ac3">section3</section>
+    <div class="accordion js-accordion">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa minus qui
+      adipisci dolores impedit hic, a earum totam nemo obcaecati dolorem dolor
+      incidunt cumque facilis quisquam, aliquid, alias doloribus? Debitis?
+    </div>
+    <script>
+      const ac1 = document.querySelector(".js-ac1"),
+        ac2 = document.querySelector(".js-ac2"),
+        ac3 = document.querySelector(".js-ac3");
+      function handleClick(event) {
+        const target = event.target;
+        const accordionDiv = target.nextElementSibling;
+        let isBlock = accordionDiv.style.height;
+        target.classList.toggle("active");
+        console.log(accordionDiv.scrollHeight);
+        if (accordionDiv.style.height) {
+          // accordionDiv.classList.toggle("showing");
+          accordionDiv.style.height = null;
+        } else {
+          console.log(isBlock);
+          // accordionDiv.classList.toggle("showing");
+          accordionDiv.style.height = `${accordionDiv.scrollHeight}px`;
+        }
+      }
+      function init() {
+        ac1.addEventListener("click", handleClick);
+        ac2.addEventListener("click", handleClick);
+        ac3.addEventListener("click", handleClick);
+      }
+      init();
     </script>
   </body>
 </html>
