@@ -1,0 +1,33 @@
+.slide__wrap {
+  position: relative;
+  width: 100px;
+  margin: auto;
+  padding-bottom: 30px;
+  /* overflow: hidden; */
+}
+/* .slide__box {
+  margin: auto;
+  width: 100%;
+  overflow: hidden;
+} */
+.slide__content {
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+
+.slide01 {
+  background-color: red;
+}
+.slide02 {
+  background-color: rebeccapurple;
+}
+.slide03 {
+  background-color: yellow;
+}
+.slide04 {
+  background-color: gainsboro;
+}
+.slide05 {
+  background-color: cadetblue;
+}
