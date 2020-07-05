@@ -32,7 +32,7 @@ for (let i = 0; i < slideLen; i++) {
 }
 pagination.innerHTML = pageChild;
 const pageDots = document.querySelectorAll(".dot");
-console.log(pageDots);
+// console.log(pageDots);
 function clickNext() {
   if (curIndex <= slideLen - 1) {
     slideList.style.transform = `translateX(-${slideWidth * (curIndex + 2)}px)`;
@@ -79,12 +79,14 @@ function clickPrev() {
   curSlide.classList.add(SLIDEACTIVE_CN);
 }
 let curDot;
-Array.prototype.forEach.call(pageDots, function (dot, i) {
+Array.prototype.forEach.call(pageDots, function (dot) {
   dot.addEventListener("click", function (e) {
-    e.preventDefault();
+    // e.preventDefault();
     curDot = document.querySelector(".dot__active");
+    curDot.classList.remove("dot__active");
 
     curDot = this;
+    console.log(this);
     this.classList.add("dot__active");
 
     curSlide.classList.remove("slide_active");
