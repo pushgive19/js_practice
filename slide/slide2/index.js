@@ -93,25 +93,42 @@ function clickPrev() {
   curSlide.classList.add(SLIDEACTIVE_CN);
 }
 
+// let curDot;
+
+// Array.prototype.forEach.call(pageDots, function (dot) {
+//   dot.addEventListener("click", function () {
+//     curDot = document.querySelector(`.${DOTACTIVE_CN}`);
+//     curDot.classList.remove(DOTACTIVE_CN);
+
+//     curDot = this;
+//     curDot.classList.add(DOTACTIVE_CN);
+
+//     curSlide.classList.remove(SLIDEACTIVE_CN);
+//     curIndex = Number(this.getAttribute("data-index"));
+//     curSlide = slideContent[curIndex];
+//     curSlide.classList.add(SLIDEACTIVE_CN);
+//     slideList.style.transition = `${slideSpeed}ms`;
+//     slideList.style.transform = `translateX(-${slideWidth * (curIndex + 1)}px)`;
+//   });
+// });
 let curDot;
 
 Array.prototype.forEach.call(pageDots, function (dot) {
   dot.addEventListener("click", function () {
-    curDot = document.querySelector(`.${DOTACTIVE_CN}`);
+    curDot = document.querySelector(".dot_active");
     curDot.classList.remove(DOTACTIVE_CN);
 
     curDot = this;
     curDot.classList.add(DOTACTIVE_CN);
 
     curSlide.classList.remove(SLIDEACTIVE_CN);
-    curIndex = Number(this.getAttribute("data-index"));
+    curIndex = Number(curDot.getAttribute("data-index"));
     curSlide = slideContent[curIndex];
     curSlide.classList.add(SLIDEACTIVE_CN);
     slideList.style.transition = `${slideSpeed}ms`;
     slideList.style.transform = `translateX(-${slideWidth * (curIndex + 1)}px)`;
   });
 });
-
 function init() {
   slideBtnNext.addEventListener("click", clickNext);
   slideBtnPrev.addEventListener("click", clickPrev);

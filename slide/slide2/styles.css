@@ -71,6 +71,8 @@ button {
   margin-right: 0;
 }
 .dot_active {
+  padding-right: 40px;
   opacity: 1;
   background-color: #ddd;
+  transition: all 300ms;
 }
