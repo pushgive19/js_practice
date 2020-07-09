@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>challenge11</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/2c6cfb22b9.js"
+      ;
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&family=Noto+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="phone-area">
+      <div class="status-bar">
+        <span class="status__time">14:24</span>
+        <div class="status__icons">
+          <i class="status-icon fas fa-signal"></i>
+          <i class="status-icon fas fa-wifi"></i>
+          <i class="status-icon fas fa-battery-full"></i>
+        </div>
+      </div>
+      <main class="main">
+        <div class="main__header">
+          <i class="header__back-btn fas fa-arrow-left"></i>
+          <i class="header__share-btn fas fa-share-alt"></i>
+        </div>
+        <div class="bg__img-list">
+          <img src="avenue.jpg" alt="아비뉴프랑" class="bg__img" />
+          <img src="pangyo.jpg" alt="판교역" class="bg__img" />
+          <img src="nhn.jpg" alt="네이버" class="bg__img" />
+          <div class="bg__img bg__color">+4</div>
+        </div>
+        <div class="keyword__list">
+          <span class="keyword">TOWN</span>
+          <span class="keyword">Tech Industry</span>
+          <span class="keyword">Expensive</span>
+        </div>
+        <section class="sights">
+          <div class="sights__title">
+            <h1 class="sight__name">Sky of Pangyo</h1>
+            <i class="fas fa-heart sight__icon"></i>
+          </div>
+          <div class="sights__location">
+            <i class="fas fa-map-marker-alt sight__location-icon"></i>
+            <span class="sight__location-name">Dong-pangyo-ro 226</span>
+          </div>
+          <div class="sights__rate">
+            <div class="rate__column">
+              <i class="fas fa-star rate__icon"></i>
+              <i class="fas fa-star rate__icon"></i>
+              <i class="fas fa-star rate__icon"></i>
+              <i class="fas fa-star rate__icon"></i>
+              <i class="fas fa-star-half-alt rate__icon"></i>
+              <span class="rate__point">4.75</span>
+            </div>
+            <div class="rate__column">
+              <span class="rate__distance">325 m</span>
+            </div>
+          </div>
+          <div class="sights__overview">
+            <p class="overview__title">OVERVIEW</p>
+            <p class="overview__detail">
+              Pangyo is very busy town. But sometimes it showed awesome sky
+              view. How awesome there
+            </p>
+            <h4 class="overview__more"><a href="#">Read More</a></h4>
+          </div>
+        </section>
+      </main>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__list-item">
+            <i class="fas fa-home nav__icon"
+              ><div class="icon__selector"></div
+            ></i>
+          </li>
+          <li class="nav__list-item">
+            <i class="fas fa-globe-americas nav__icon"
+              ><div class="icon__selector"></div
+            ></i>
+          </li>
+          <li class="nav__list-item">
+            <i class="fas fa-map-marked-alt nav__icon icon__center"> </i>
+            <!-- display flex에서 positoin fixed로 바꾸면 어케 되는지 궁금해 -->
+          </li>
+          <li class="nav__list-item">
+            <i class="fas fa-users nav__icon"
+              ><div class="icon__selector"></div
+            ></i>
+          </li>
+          <li class="nav__list-item">
+            <i class="fas fa-cog nav__icon"
+              ><div class="icon__selector"></div
+            ></i>
+          </li>
+        </ul>
+        <div class="bottom__line"></div>
+      </nav>
+    </div>
+  </body>
+</html>

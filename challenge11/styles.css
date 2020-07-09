@@ -1,0 +1,236 @@
+body {
+  font-family: "Noto Sans", sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
+  padding: 20px 10px;
+  background-color: #e4e5ec;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.phone-area {
+  width: 380px;
+  height: 820px;
+  padding: 0px 30px;
+  padding-top: 10px;
+  border-radius: 20px;
+
+  /* background-image: url("home.jpg"); */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+      to top,
+      rgb(255, 255, 255),
+      #f1f1f1 30%,
+      #f2f3f6 50%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url("home.jpg");
+  box-shadow: inset 3px 0px 30px -20px rgba(189, 189, 189, 0.64),
+    0px 10px 47px -18px rgba(189, 189, 189, 0.53);
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.status__time {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.main__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25px;
+  margin-bottom: 190px;
+}
+.main__header .header__share-btn {
+  font-size: 20px;
+}
+.bg__img-list {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+}
+.bg__img-list .bg__img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+.bg__img-list .bg__color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: white;
+  background-color: #47723d;
+}
+.keyword__list {
+  margin-bottom: 15px;
+}
+.keyword__list .keyword {
+  padding: 5px 15px;
+  background-color: #bedfb6;
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  margin-right: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #284b21;
+}
+.sights__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sights__title .sight__name {
+  font-size: 35px;
+  font-weight: 900;
+}
+.sights__title .sight__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  color: rgb(255, 20, 51);
+  border-radius: 20px;
+  box-shadow: 0px 3px 20px -1px rgba(189, 189, 189, 0.47);
+  cursor: pointer;
+}
+.sights__title .sight__icon:hover {
+  animation: paint 0.5s ease-in-out both;
+}
+@keyframes paint {
+  0% {
+    color: black;
+  }
+  100% {
+    color: rgb(255, 20, 51);
+  }
+}
+.sights__location .sight__location-icon {
+  font-size: 13px;
+  color: #276d19;
+}
+.sight__location-name {
+  color: rgb(148, 148, 148);
+  margin-left: 5px;
+  font-weight: 300;
+}
+
+.sights__rate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.sights__rate .rate__distance {
+  color: rgb(148, 148, 148);
+  font-weight: 300;
+}
+.sights__rate .rate__icon {
+  color: #ffbc00;
+}
+.sights__rate .rate__point {
+  margin-left: 5px;
+}
+
+.overview__title {
+  font-size: 10px;
+  color: #9a9e98;
+}
+.overview__detail {
+  font-weight: 300;
+  color: #4a6843;
+  line-height: 25px;
+  margin: 5px 0px;
+}
+.overview__more a {
+  color: #276d19;
+}
+.nav {
+  position: fixed;
+  bottom: 145px;
+  width: 380px;
+  left: 10px;
+  height: 100px;
+  background-color: white;
+  border-radius: 0 0 22px 22px;
+  border-top: 1px solid rgba(238, 238, 238, 0.411);
+}
+.nav__list {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav__list .nav__icon {
+  color: #9a9e98;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+}
+.nav__icon .icon__selector {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background-color: #276d19;
+  top: -41px;
+  left: -5px;
+  display: none;
+}
+
+.nav__icon:hover,
+.nav__icon:hover > .icon__selector {
+  color: #276d19;
+  display: block;
+}
+.nav__list-item .fa-home,
+.fa-home .icon__selector {
+  display: block;
+}
+.nav__list-item .fa-home {
+  color: #276d19;
+}
+.nav__list .icon__center {
+  position: fixed;
+  bottom: 220px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #276d19;
+  width: 55px;
+  height: 55px;
+  border-radius: 60px;
+  color: white;
+  left: 170px;
+  box-shadow: 0px 3px 16px 3px rgba(189, 189, 189, 0.64);
+  /* position: relative; */
+}
+.bottom__line {
+  background-color: #9a9e98;
+  width: 100px;
+  height: 4px;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: -15px;
+  opacity: 50%;
+}
