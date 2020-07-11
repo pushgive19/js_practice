@@ -1,0 +1,141 @@
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #2698f9;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #616161;
+}
+* {
+  box-sizing: border-box;
+}
+
+.phone-area {
+  width: 320px;
+  height: 680px;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    ),
+    url("../image/min.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 15px 20px 10px 20px;
+  position: relative;
+}
+.status-bar,
+.main__header,
+.profile__btn,
+.profile__abstract,
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.profile__abstract {
+  justify-content: space-around;
+}
+.status-bar {
+  color: black;
+  font-size: 13px;
+}
+.status-bar .status__clock {
+  font-weight: 600;
+}
+
+.main__header {
+  font-size: 22px;
+  opacity: 80%;
+}
+.header__title {
+  font-size: 19px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.profile .follow__section {
+  width: 100%;
+}
+.profile .profile__avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  object-fit: cover;
+  margin-top: 105px;
+  margin-bottom: 15px;
+  box-shadow: 0px 10px 60px -7px rgb(0, 0, 0);
+  mask-image: cross-fade();
+}
+.profile__name {
+  font-family: "Jua", sans-serif;
+  letter-spacing: 2px;
+  font-size: 19px;
+  color: #4f90c2;
+}
+.profile__location {
+  font-size: 13px;
+  margin-top: -10px;
+}
+
+.profile__btn {
+  margin: 25px 0px;
+  justify-content: space-around;
+}
+.profile__btn button {
+  width: 130px;
+  height: 40px;
+  border: none;
+  background-color: white;
+  font-weight: 300;
+  font-size: 15px;
+  border-radius: 10px;
+  color: rgb(63, 63, 63);
+  box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, 0.589);
+  cursor: pointer;
+}
+.profile__btn .btn__message {
+  background-color: #4f90c2;
+}
+
+.profile__abstract span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+
+  /* align-items: center; */
+}
+.profile__abstract p {
+  margin-top: -3px;
+}
+
+.nav {
+  margin: 0 auto;
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  padding: 0px 50px;
+}
+.nav__icon {
+  font-size: 20px;
+}
+.nav__icon:first-child {
+  color: #4f90c2;
+}
+
+.bottom-line {
+  position: absolute;
+  bottom: 10px;
+  width: 30%;
+  left: 35%;
+  margin: 0 auto;
+  height: 3px;
+  background-color: gray;
+  z-index: 5;
+}
