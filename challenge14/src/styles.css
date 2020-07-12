@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.container {
+  width: 500px;
+  height: 300px;
+  margin-bottom: 50px;
+}
+.container-top {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg");
+  background-color: #7a8ebb;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.container-bottom {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg");
+  background-color: #996e5b;
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 0;
+}
+
+/* give content style  */
+.hover__content {
+  background-color: rgb(32, 32, 32);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hover__content.hover__popup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hover__content h4 {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-size: 20px;
+}
+.hover__content span {
+  color: rgb(187, 28, 76);
+  margin-bottom: 20px;
+}
+.hover__content button {
+  background-color: rgb(187, 28, 76);
+  color: white;
+  border: none;
+  padding: 15px 15px;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+.hover__content button:hover {
+  background-color: rgba(187, 28, 76, 0.692);
+  transform: scale(1.05);
+}
+
+.hover__popup {
+  padding: 20px 20px;
+}
+.hover__dissolve {
+  widows: 100%;
+  height: 100%;
+  padding-top: 70px;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+.hover__dissolve:hover {
+  transform: translate(20px, 20px);
+  opacity: 1;
+}
+
+.container__wrapper {
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+}
+.container-bottom {
+  height: 300px;
+  transition: all 0.3s ease-in-out;
+}
+.container__wrapper:hover .container-bottom {
+  height: 212px;
+}
+/* .container__wrapper .hover__popup {
+  transition: all 0.3s ease-in-out;
+}
+.container__wrapper:hover .hover__popup {
+  transform: translateY(-88px);
+}
+.container__wrapper:hover .container-bottom {
+  transform: translateY(-44px);
+} */
