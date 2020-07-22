@@ -3,7 +3,7 @@
 월 누르면 월 선택 가능/ 
 추가로 월 선택 페이지에서 년도 누르면 년도 선택 창으로 이동
   -->
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,11 +33,13 @@
           </span>
         </header>
         <div class="month__date">
-          <span class="date">S</span>
-          <span class="date">M</span>
+          \\
+          <div class="date">S</div>
+          <div class="date">M</div>
+          <div class="date">T</div>
+          <div class="date">W</div>
           <span class="date">T</span>
-          <span class="date">W</span>
-          <span class="date">T</span>
+
           <span class="date">F</span>
           <span class="date">S</span>
         </div>
@@ -76,5 +78,44 @@
       </div>
     </div>
     <script src="index.js"></script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="my-calendar clearfix">
+        <div class="cliked-date">
+          <div class="cal-day"></div>
+          <div class="cal-date"></div>
+        </div>
+        <div class="calender-box">
+          <button type="button" title="prev" class="btn-cal prev"></button>
+          <span class="cal-month"></span>
+          <span class="cal-year"></span>
+          <button type="button" title="next" class="btn-cal next"></button>
+        </div>
+        <table class="cal-table">
+          <thead>
+            <tr>
+              <th>Sun</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wen</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+            </tr>
+          </thead>
+          <tbody class="cal-body"></tbody>
+        </table>
+      </div>
+    </div>
   </body>
 </html>
