@@ -24,30 +24,43 @@ const initial = {
     "December",
   ],
   today: new Date(),
+  monForChange: new Date().getMonth(),
   addZero: (num) => (num < 10 ? `0${num}` : num),
   thisMonth: function () {
     return this.today.getMonth();
-  },
+  } /* 이거 굳이 이렇게 안하고 thisMonth 하면서 new Date().getMonth(),해도 되잖어 */,
   thisYear: function () {
     return this.today.getFullYear();
   },
   getFirstDay: (yy, mm) => new Date(yy, mm, 1),
   getLastDay: (yy, mm) => new Date(yy, mm + 1, 0),
+  prevMonth: function () {
+    let d = new Date();
+    d.setDate(1);
+    d.setMonth(--this.monForChange);
+    return d;
+  },
+  nextMonth: function () {
+    let d = new Date();
+    d.setDate(1);
+    d.setMonth(++this.monForChange);
+    return d;
+  },
+  isClicked: null,
 };
 const todayDay = document.querySelector(".clicked__day"),
   todayDate = document.querySelector(".clicked__date"),
   ctrMonth = document.querySelector(".ctr__box-month"),
   ctrYear = document.querySelector(".ctr__box-year"),
   btnPrev = document.querySelector(".cal__btn.prev"),
-  btnNext = document.querySelector(".cal__btn.next");
+  btnNext = document.querySelector(".cal__btn.next"),
+  calBody = document.querySelector(".cal-body");
 let makeTable = document.querySelector(".calendar__table");
 let clickMonth = initial.thisMonth();
 let clickYear = initial.thisYear();
 
-function printToday() {
-  const day = initial.today.getDay();
-  const date = initial.today.getDate();
-  todayDay.textContent = initial.day[day];
+function printToday(d, date) {
+  todayDay.textContent = initial.day[d];
   todayDate.textContent = date;
 }
 function printCtr(yy, mm) {
@@ -63,83 +76,100 @@ function printCtr(yy, mm) {
   // ctrMonth.textContent = initial.month[initial.today.getDay()];
   // ctrYear.textContent = initial.today.getFullYear();
 }
-function printCalendar(yy, mm) {
-  console.log("yy,mm :>> ", yy, mm);
-  printCtr(yy, mm);
+function printCalendar(fullDate) {
+  console.log(fullDate);
+  const yy = fullDate.getFullYear();
+  const mm = fullDate.getMonth();
+  const firstDay = initial.getFirstDay(yy, mm);
+  const LastDay = initial.getLastDay(yy, mm);
+  let markToday;
+  if (mm === initial.today.getMonth() && yy === initial.today.getFullYear()) {
+    markToday = initial.today.getDate();
+  }
+  // printCtr(yy, mm);
+  ctrMonth.textContent = initial.month[mm];
+  ctrYear.textContent = yy;
   let saveDate = "";
   let dayNum = 0;
-  const isFirst = initial.getFirstDay(yy, mm).getDay();
-  const isLast = initial.getLastDay(yy, mm).getDate();
+  let startCount;
+  // const isFirst = initial.getFirstDay(yy, mm).getDay();
+  // const isLast = initial.getLastDay(yy, mm).getDate();
   for (let i = 0; i < 6; i++) {
     saveDate += "<tr>";
     for (let j = 0; j < 7; j++) {
-      if (i === 0 && j < isFirst) {
-        saveDate += "<td></td>";
-      } else {
-        if (dayNum < isLast) {
-          // console.log(dayNum, isLast);
-          if (
-            dayNum === initial.today.getDate() - 1 &&
-            mm === initial.thisMonth()
-          ) {
-            console.log(dayNum, dayNum - 1, "hi");
-            saveDate += `<td class="day today">${++dayNum}`;
-            saveDate += "</td>";
-          } else {
-            saveDate += `<td class="day">${++dayNum}`;
-            saveDate += "</td>";
-          }
-        }
+      if (i === 0 && !startCount && j === firstDay.getDay()) {
+        startCount = 1;
       }
+      if (!startCount) {
+        saveDate += "<td>";
+      } else {
+        saveDate += '<td class="day';
+        saveDate += markToday && markToday === dayNum + 1 ? ' today">' : '">';
+      }
+      saveDate += startCount ? ++dayNum : "";
+      saveDate += "</td>";
+      if (dayNum === LastDay.getDate()) {
+        startCount = 0;
+      }
+      // if (dayNum < isLast) {
+      //   // console.log(dayNum, isLast);
+      //   if (
+      //     dayNum === initial.today.getDate() - 1 &&
+      //     mm === initial.thisMonth()
+      //   ) {
+      //     console.log(dayNum, dayNum - 1, "hi");
+      //     saveDate += `<td class="day today">${++dayNum}`;
+      //     saveDate += "</td>";
+      //   } else {
+      //     saveDate += `<td class="day">${++dayNum}`;
+      //     saveDate += "</td>";
+      //   }
+      // }
     }
     saveDate += "</tr>";
   }
-  console.log(saveDate);
-  makeTable.innerHTML += saveDate;
+  calBody.innerHTML = saveDate;
+
+  //click하면 색상과 왼쪾 변경하기 위해서
+  // const day = document.querySelectorAll(".day");
+  // clickDay(day);
 }
-function handlePrev() {
-  // const prevMonth = new Date(yy, mm);
-  makeTable.innerHTML =
-    "<tr>" +
-    "<th>Sun</th>" +
-    "<th>Mon</th>" +
-    "<th>Tue</th>" +
-    "<th>Wen</th>" +
-    "<th>Thu</th>" +
-    "<th>Fri</th>" +
-    "<th>Sat</th>" +
-    "</tr>";
-  console.log("makeTable.innerHTML :>> ", makeTable.textContent);
-  clickMonth--;
-  if (clickMonth === -1) {
-    clickMonth = 11;
-    clickYear--;
+function clickDay(e) {
+  // for (const iterate of day) {
+  //   let checkClicked = false;
+  //   let saveClicked;
+  //   console.log("checkClicked :>> ", checkClicked);
+  //   iterate.addEventListener("click", function (e) {
+  //     console.log("checkClicked :>> ", checkClicked);
+  //     if (!checkClicked) {
+  //       e.target.classList.toggle("clicked");
+  //       saveClicked = e.target;
+  //       console.log("saveClicked :>> ", saveClicked);
+  //     } else {
+  //       console.log("saveClicked :>> ", saveClicked);
+  //       console.log("saveClicked === e.target :>> ", saveClicked === e.target);
+  //       e.target.classList.toggle("clicked");
+  //     }
+  //     printToday(0, e.target.innerText);
+  //   });
+  //   checkClicked = true;
+  // }console.log
+  console.log(e.target.classList);
+  if (e.target.classList.contains("day")) {
+    if (initial.isClicked) {
+      initial.isClicked.classList.remove("clicked");
+    }
+    todayDay.textContent = initial.day[e.target.cellIndex];
+    todayDate.textContent = e.target.textContent;
+    e.target.classList.add("clicked");
+    initial.isClicked = e.target;
   }
-  printCalendar(clickYear, clickMonth);
-}
-function handleNext() {
-  makeTable.innerHTML =
-    "<tr>" +
-    "<th>Sun</th>" +
-    "<th>Mon</th>" +
-    "<th>Tue</th>" +
-    "<th>Wen</th>" +
-    "<th>Thu</th>" +
-    "<th>Fri</th>" +
-    "<th>Sat</th>" +
-    "</tr>";
-  console.log("makeTable.innerHTML :>> ", makeTable.textContent);
-  clickMonth++;
-  if (clickMonth === 12) {
-    clickMonth = 0;
-    clickYear++;
-  }
-  printCalendar(clickYear, clickMonth);
 }
 function init() {
-  printToday();
-  printCalendar(initial.thisYear(), initial.thisMonth());
-  btnPrev.addEventListener("click", handlePrev);
-  btnNext.addEventListener("click", handleNext);
+  printToday(initial.today.getDay(), initial.today.getDate());
+  printCalendar(initial.today);
+  btnPrev.addEventListener("click", () => printCalendar(initial.prevMonth()));
+  btnNext.addEventListener("click", () => printCalendar(initial.nextMonth()));
+  calBody.addEventListener("click", clickDay);
 }
 init();

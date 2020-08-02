@@ -46,15 +46,15 @@ const init = {
   },
   addZero: (num) => (num < 10 ? "0" + num : num),
   activeDTag: null,
-  getIndex: function (node) {
-    let index = 0;
-    while ((node = node.previousElementSibling)) {
-      index++;
-    }
-    return index;
-  },
+  // getIndex: function (node) {
+  //   let index = 0;
+  //   while ((node = node.previousElementSibling)) {
+  //     index++;
+  //   }
+  //   return index;
+  // },
 };
-console.log(init, init.today, init["today"]);
+console.log("initial.nextMonth(2020,5) :>> ", init.nextMonth(2020, 5));
 const $calBody = document.querySelector(".cal-body");
 const $btnNext = document.querySelector(".btn-cal.next");
 const $btnPrev = document.querySelector(".btn-cal.prev");
@@ -101,9 +101,10 @@ function loadYYMM(fullDate) {
           yy + "." + init.addZero(mm + 1) + "." + init.addZero(countDay + 1);
         trtd += '<td class="day';
         trtd += markToday && markToday === countDay + 1 ? ' today" ' : '"';
-        //markToday 처음꺼는 왜줬을까?
+        //markToday 처음꺼는 왜줬을까? 값이 있어야 되니까
 
-        trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
+        // trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
+        trtd += `>`;
       }
       trtd += startCount ? ++countDay : "";
       if (countDay === lastDay.getDate()) {
@@ -119,25 +120,25 @@ function loadYYMM(fullDate) {
 /**
  * @param {string} val
  */
-function createNewList(val) {
-  let id = new Date().getTime() + "";
-  let yy = init.activeDate.getFullYear();
-  let mm = init.activeDate.getMonth() + 1;
-  let dd = init.activeDate.getDate();
-  ㄴ;
-  const $target = $calBody.querySelector(`.day[data-date="${dd}"]`);
+// function createNewList(val) {
+//   let id = new Date().getTime() + "";
+//   let yy = init.activeDate.getFullYear();
+//   let mm = init.activeDate.getMonth() + 1;
+//   let dd = init.activeDate.getDate();
+//   ㄴ;
+//   const $target = $calBody.querySelector(`.day[data-date="${dd}"]`);
 
-  let date = yy + "." + init.addZero(mm) + "." + init.addZero(dd);
+//   let date = yy + "." + init.addZero(mm) + "." + init.addZero(dd);
 
-  let eventData = {};
-  eventData["date"] = date;
-  console.log(eventData, eventData.date, eventData["date"]);
-  eventData["memo"] = val;
-  eventData["complete"] = false;
-  eventData["id"] = id;
-  init.event.push(eventData);
-  $todoList.appendChild(createLi(id, val, date));
-}
+//   let eventData = {};
+//   eventData["date"] = date;
+//   console.log(eventData, eventData.date, eventData["date"]);
+//   eventData["memo"] = val;
+//   eventData["complete"] = false;
+//   eventData["id"] = id;
+//   init.event.push(eventData);
+//   $todoList.appendChild(createLi(id, val, date));
+// }
 
 loadYYMM(init.today);
 loadDate(init.today.getDate(), init.today.getDay());
@@ -154,7 +155,7 @@ $calBody.addEventListener("click", (e) => {
     loadDate(day, e.target.cellIndex);
     e.target.classList.add("day-active");
     init.activeDTag = e.target;
+    // 151줄이랑 연계가 된다고?흐음.
     init.activeDate.setDate(day);
-    reloadTodo();
   }
 });

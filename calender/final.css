@@ -1,0 +1,109 @@
+* {
+  padding: 0;
+  margin: 0;
+  color: rgb(27, 27, 27);
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.calendar {
+  display: flex;
+  width: 700px;
+  height: 500px;
+  margin-top: 100px;
+  margin: 100px auto;
+  justify-content: space-around;
+  text-align: center;
+  background-color: #f1c40f;
+  align-items: center;
+  border-radius: 5px;
+}
+.cal__print {
+  background-color: #1abc9c;
+  height: 30%;
+  width: 150px;
+  border-radius: 30px;
+  /* transform:translateY(50%) */
+}
+.cal__day {
+  font-weight: 600;
+  padding-bottom: 5px;
+  padding-top: 40px;
+}
+.cal__cal {
+  background-color: #2980b9;
+  padding: 20px;
+  border-radius: 30px;
+}
+.cal__table {
+  margin: 30px auto;
+  margin-bottom: 0;
+}
+.cal__table tr {
+  /* height: 30px; */
+}
+.cal__table td {
+  width: 37px;
+  height: 37px;
+}
+.cal__ctr span {
+  font-size: 20px;
+}
+.cal__ctr button {
+  border: 0;
+  background: none;
+  padding: 0 20px;
+  cursor: pointer;
+  font-size: 10px;
+  color: darkblue;
+  outline: none;
+}
+.cal__title {
+  position: absolute;
+  top: 120px;
+  transition: all 1s;
+  animation: title-color 1s infinite ease-in-out;
+}
+@keyframes title-color {
+  0% {
+    color: red;
+  }
+  20% {
+    color: orange;
+  }
+  40% {
+    color: yellow;
+  }
+  60% {
+    color: green;
+  }
+  80% {
+    color: blue;
+  }
+  100% {
+    color: indigo;
+  }
+}
+.table__body .today {
+  background-color: rgba(255, 255, 255, 0.849);
+  border-radius: 100px;
+  color: darkblue;
+  font-weight: 600;
+}
+.table__body .clicked {
+  background-color: #9b59b6;
+  border-radius: 60px;
+}
+
+.ctr__prev {
+  transform: rotate(30deg);
+}
+.ctr__next {
+  transform: rotate(-30deg);
+}
+.cal__ctr {
+  display: flex;
+  justify-content: space-between;
+}

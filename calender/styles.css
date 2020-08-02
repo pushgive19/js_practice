@@ -17,6 +17,7 @@ html {
   display: block;
 }
 body {
+  margin-top: -20px;
   background-color: #ddd;
 }
 .calendar__container {
@@ -29,6 +30,9 @@ body {
 .calendar__clicked {
   text-align: center;
   float: left;
+  font-size: 30px;
+  margin-left: 50px;
+  margin-top: 50px;
 }
 .calendar__container .calendar {
   text-align: center;
@@ -45,14 +49,20 @@ body {
 .ctr__box .cal__btn.prev::after {
   content: "<";
   position: absolute;
-  top: 0;
+  top: 13px;
   left: 0;
+}
+.ctr__box-month {
+  font-size: 18px;
+}
+.ctr__box-year {
+  font-size: 20px;
 }
 .cal__btn.next::after {
   position: absolute;
   content: ">";
-  right: 0;
-  top: 0;
+  right: 0px;
+  top: 13px;
   /* 이거 left어떻게 적었을까?/ */
 }
 
@@ -68,9 +78,23 @@ body {
   height: 50px;
   line-height: 50px;
 }
-td.today {
+.today {
   background-color: yellow;
-  border-radius: 30px;
-  height: 30px;
-  width: 30px;
+  border-radius: 80px;
+}
+.day {
+  cursor: pointer;
+}
+.clicked {
+  /* z-index: 2; */
+  background-color: rgb(194, 117, 117);
+  border-radius: 80px;
+}
+.cal-body td {
+  /* display: block; */
+  width: 40px;
+  height: 40px;
+}
+.calendar__table {
+  margin-top: 20px;
 }
