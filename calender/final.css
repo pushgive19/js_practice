@@ -47,6 +47,7 @@ body {
 .cal__table td {
   width: 37px;
   height: 37px;
+  cursor: pointer;
 }
 .cal__ctr span {
   font-size: 20px;

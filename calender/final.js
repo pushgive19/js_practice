@@ -103,6 +103,19 @@ function clickDate(e) {
     document.querySelector(".cal__date").textContent = e.target.textContent;
   }
 }
+// function clickDate(e) {
+//   if (e.target.classList.contains("day")) {
+//     let checkCN;
+//     if (checkCN) {
+//       checkCN.classList.remove("clicked");
+//     }
+//     e.target.classList.add("clicked");
+//     checkCN = e.target;
+//     document.querySelector(".cal__day").textContent =
+//       set.day[e.target.cellIndex];
+//     document.querySelector(".cal__date").textContent = e.target.textContent;
+//   }
+// }
 function init() {
   loadCal(set.today);
   calBody.addEventListener("click", clickDate);

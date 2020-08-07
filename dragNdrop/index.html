@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col col-3">
+        <div class="comp-holder">
+          <div
+            class="comp js-draggable"
+            data-table="comp-01"
+            draggable="true"
+            ondragstart="onDragStart(event);"
+            ondragend="onDragEnd(event);;"
+          >
+            [Header component]
+          </div>
+          <div
+            data-table="comp-02"
+            class="comp js-draggable"
+            draggable="true"
+            ondragstart="onDragStart(event);"
+            ondragend="onDragEnd(event);"
+          >
+            [Image Component]
+          </div>
+          <div
+            data-table="comp-03"
+            class="comp js-graggable"
+            draggable="true"
+            ondragstart="onDragStart(event);"
+            ondragend="onDragEnd(event);"
+          >
+            [Text Component]
+          </div>
+          <div
+            data-table="comp-04"
+            class="comp js-graggable"
+            draggable="true"
+            ondragstart="onDragStart(event);"
+            ondragend="onDragEnd(event);"
+          >
+            <!-- event 뒤에 세미콜론 없으면 어케 되는겨? -->
+            [Footer Component]
+          </div>
+        </div>
+      </div>
+      <div class="col col-9">
+        <h3>Dropzone</h3>
+        <div
+          id="dropzone"
+          class="editor-view"
+          ondragover="onDragOver(event);"
+          ondrop="onDrop(event);"
+        ></div>
+      </div>
+    </div>
+    <div class="hidden">
+      <header class="actual-comp" id="comp-01">
+        <a href="https://daily-dev-tips.com">
+          <img
+            src="https://daily-dev-tips.com/images/logo.png"
+            height="50"
+          /><!-- 이거 height 50뒤에 단위 안붙이는 거야? --></a
+        >
+        <a href="#">Menu</a>
+      </header>
+      <div class="actual-comp" id="comp-02">
+        <img
+          src="https://images.unsplash.com/photo-1587588354456-ae376af71a25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+          alt=""
+          class="image"
+        />
+      </div>
+      <div class="actual-comp" id="comp-03">
+        <p class="text">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique
+          libero minima impedit at voluptate temporibus obcaecati pariatur nulla
+          nihil provident debitis facilis amet alias eum molestias voluptatibus,
+          assumenda sunt repudiandae totam tempora deleniti praesentium illo
+          explicabo! Aliquam modi dolor soluta quos doloribus odit sed nostrum.
+          Excepturi illo eaque molestias dolorem sapiente incidunt adipisci
+          rerum voluptates deleniti reprehenderit necessitatibus, voluptas
+          aperiam laboriosam voluptate neque. Soluta explicabo nostrum
+          asperiores odio facilis architecto veritatis, quisquam ipsam quod a
+          aliquid, possimus accusamus modi, sit magni repellendus. Recusandae
+          aliquam dicta rem officia, doloribus reiciendis expedita esse
+          excepturi debitis dolore enim, repellendus, odit numquam eos eligendi.
+        </p>
+      </div>
+      <footer class="actual-comp" id="comp-04">
+        &copy; Daily Dev Tips 2020
+      </footer>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
