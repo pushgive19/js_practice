@@ -46,10 +46,6 @@ html {
 .col-9 .editor-view {
   width: 100%;
   border: 2px dotted #ccc;
-  height: 200px;
-}
-.hidden {
-  /* display: none; */
 }
 header.actual-comp {
   display: flex;
@@ -74,4 +70,7 @@ footer.actual-comp {
   align-items: center;
   background-color: rgb(0, 88, 88);
   color: white;
+}
+.hidden {
+  display: none;
 }
