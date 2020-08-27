@@ -3,11 +3,18 @@
   padding: 0;
   font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
 }
-
+html {
+  padding: 30px;
+  font-size: 30px;
+}
 .container {
-  min-height: 100vh;
+  background-color: red;
+  min-height: 100px;
+  /* min-height: 100vh; */
+  border: 3px solid black;
   display: flex;
   padding: 1rem;
+  padding: 30px;
 }
 .container .col {
   padding-right: 0.5rem;

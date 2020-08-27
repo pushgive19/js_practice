@@ -29,6 +29,7 @@
     <div ondrop="onDrop(event)" ondragover="onDragOver(event)">
       dropzone
     </div>
+    <button onclick="click()"></button>
     <script>
       function onDragStart(ev) {
         ev.target.style.color = "red";
@@ -39,6 +40,7 @@
           /* bubbling이 html까지 가지 않나? bubbling의 범위 찾아보기*/
         );
         ev.dataTransfer.setData("text/plain", ev.currentTarget.id);
+        ev.dataTransfer.clearData();
       }
       function onDragOver(ev) {
         console.log("dragover");
